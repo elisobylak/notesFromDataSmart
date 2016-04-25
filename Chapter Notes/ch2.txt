@@ -1,0 +1,46 @@
+Data Smart
+Chapter 2
+
+Cluster Analysis:
+-The practice of gathering up a bunch of objects and separating them into groups of similar objects.
+-Clustering is called exploratory data mining. It helps tease out relationships in large datasets that are too hard to identify with an eyeball.
+
+Supervised versus unsupervised machine learning:
+-When you ask a computer to segment you customers for you, that’s called ‘unsupervised machine learning’ because you’re not ‘supervising’—telling the computer how to do its job.
+-When you want to divide customers up into two groups — “likely to purchase” and “not likely to purchase”— and you provide the computer with historical examples of such customers and tell it to assign all new leads to one of these two groups, that’s supervised machine learning.
+
+This chapter goes over a type of clustering that originated in the ‘50s, k-means clustering. Has become a go to clustering technique for knowledge discovery in databases (KDD). K-means is like soul food in that is not as advance or technically involved as french cuisine, but it still hits the spot sometimes.
+
+K-Means Clustering:
+-The goal in k-means clustering is to take some points in space and put them into k groups (where k is any number you want to pick). Those k groups are each defined by a point in the center, kind of like a flag. This is formally known as the cluster centroid, and is the mean which k-mean gets its name.
+
+-With k-means, you must specify how many clusters you want to put the data set in. The algorithm is going to put k numbers of ‘flags’ as some initial feasible solution. 
+-Then data points are assigned to the cluster flag that’s nearest them.
+-After this step, you’d be able to draw a line of demarcation, whereby if a data point is on one side of the line they’re in one group. The other side of the line, Another group.
+-A diagram of this, is one that divides the space into poly-topes based on which regions are assigned to which cluster centers by distance. This is also called a Voronoi Diagram.
+-The clustering algorithm will slide around the k clusters until a best fit is achieved. This is done by finding the cluster arrangement what minimizes the average distance of data points from their centers is best.
+
+
+SUMIF() (function)
+-ex. SUMIF(‘my4MC’!$L$40:$DG$40,’my4MC-TopDealsByCluster’$H$1,’my4MC’!$L2:$DG2)
+-It works by providing it with some value to check in the first section, ‘my4MC’!$L$40:$DG$40, which are checked against the 1 in the column header (’my4MC-TopDealsByCluster’$H$1), and then for any match you sum up row 2 by specifying ’my4MC’!$L2:$DG2 in the third section of the formula 
+
+Silhouette
+-A computed score for your clusters that is relatively agnostic to the value of k, so you can compare different values of k using this single score.
+-The formal way to write the equation for this is;
+-> (Average distance to those in the nearest neighboring cluster - Average distance to those in my cluster) / (The maximum of those two averages)
+—>The denominator in the calculation keeps the value between -1 and 1.
+-As the residents of the next closet cluster get farther and farther away, the value approaches 1. If the clusters are bad it will approach 0. If it is -1, customers are better off having out in another cluster all together. 
+
+K-medians Clustering
+-using only values present in the customers’ deal vectors.
+-Use Manhattan distances instead of euclidean distances
+
+Manhattan Distances
+-Instead of taking the hypotenuse (euclidean) you have to travel in cardinal directions (north, south, east, west)
+
+Cosine Distances
+-Is an example of an asymmetric distance calculation
+-The cosine similarity of any angle between two binary purchase vectors is equal to the count of matched purchase in the two vectors divided by the product of the square root of the number of purchases in the first vector times the square root of the number of purchases in the second vector.
+-The cosine distance is then calculated by subtracting the cosine similarity from 1.
+

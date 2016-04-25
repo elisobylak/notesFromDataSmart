@@ -1,0 +1,64 @@
+Data Smart
+Chapter 1
+
+Freezing top frame or row of excel sheet
+-From the view tab or layout tab choose freeze pane or freeze top row
+
+Pressing Command+Down Arrow will bring you to the last populated cell in the column and select it.
+
+Conditional Formatting 
+-Change formatting with values
+
+MATCH-function
+-tells you the location of a string in an array of cells.
+-ex. =MATCH(“Hamburger”,A2:A15,0)
+-the zero gets passed to make it just return the location in the array
+
+INDEX-function
+-takes in a range of values and a row and column number and returns the value in the range at that location
+-ex. =INDEX(A1:B15,3,2)
+-This will feed a table in the cells A1 to B15 and return the value 3 rows down and 2 columns over
+
+OFFSET-function
+-With this formula you proved a range that acts link a cursor which is moved around with row and column offsets
+-ex. =OFFSET(A1,3,0)
+-Offset with a reference to the top left of the sheet, A1 and then pull back the value 3 cells below by providing an offset of 3 and a column offset of 0.
+
+SMALL-function
+-with its counterpart LARGE, if you have a list of values and want to return the third smallest, you can use SMALL
+-ex. =SMALL(B2:B15,3)
+-This will search through the range passed in and find the 3 smallest element in it.
+
+Referencing cells on another page
+-to do this place a “!” infront of the referenced cell
+-ex. Calories!B2
+-This is a reference to the cell B2 in the sheet it is referencing 
+
+VLOOKUP-function
+-Pull data from a passed in table, useful for merging data
+-ex. =VLOOKUP(A2,Calories!$A$1:$B$15,2,FALSE)
+-A2 is the cell we want to pull information for from the inputed table
+-Calories is the name of the sheet we want to pull data from, ! after because it is referencing another cell
+-$A$1:$B$15 is the ranges for the table we are looking in, and using $ lets this formula be static and will change for the appropriate cell, meaning it can be pulled down and quick-copied
+-2 is the relative column offset you want to return value to read out of, which is to say the second column
+-FALSE means that you will not accept approximate matches for “Beer”, if it can’t find what it is looking for it will throw an error.
+
+Use quick-sort in Data panel to sort table by header rows/names
+
+Pivot Tables
+-This allows you to aggregate data from a table in many ways. Just drag and drop data fields into the pivotTable builder and it will do the work for you
+
+Array formulas
+
+-SUMPRODUCT-funciton
+-Allows you to sum the product of any two ranges in any sheet and have the result returned to you
+-ex. =SUMPRODUCT(B2:B15,TRANSPOSE(‘Fee Schedule’!B2,O2))
+-here, you are calling the SUMPRODUCT function which you first pass into an array with elements you’d like to multiply with elements in another array somewhere.
+-TRANSPOSE-function is used here only because the data is formatted differently between the two arrays we are trying to multiply. It may also help if the arrays you are trying to muplitply are different sizes. 
+-Next the sheet containing the values to read from is passed and then the range of values to multiply the first range by
+
+
+OpenSolver
+-uses modeling and statistics to solve problems you give it
+
+
